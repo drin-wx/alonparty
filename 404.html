@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alon Partylist — Under Construction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+  /* =========================================================
+     1. CSS STYLES (Tokens aligned with Alon Partylist)
+     ========================================================= */
+  :root {
+    --bg-dark: #071531;       /* Deep Navy Blue */
+    --bg-gradient: linear-gradient(180deg, #071531 0%, #030a18 100%);
+    --text-light: #ffffff;
+    --text-muted: #bfe4f7;     /* Soft Wave Blue */
+    --accent-blue: #4fbae8;    /* Active Wave Blue */
+    --font-sans: 'Montserrat', sans-serif;
+    --font-serif: 'Cormorant+Garamond', serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--bg-gradient);
+    font-family: var(--font-sans);
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Canvas Engine Position */
+  #maintenance-canvas {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Main Container */
+  .container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    max-width: 650px;
+    width: 100%;
+    animation: fadeIn 1.2s ease-out forwards;
+  }
+
+  /* Branding */
+  .brand {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    margin-bottom: 0.5rem;
+  }
+
+  .brand span {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent-blue);
+    letter-spacing: 1px;
+    margin-left: 2px;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: rgba(79, 179, 232, 0.15);
+    border: 1px solid rgba(79, 179, 232, 0.3);
+    padding: 6px 16px;
+    border-radius: 20px;
+    color: var(--accent-blue);
+    margin-bottom: 2.5rem;
+    font-weight: 600;
+  }
+
+  /* Main Headings */
+  .status-code {
+    font-size: 6rem;
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(180deg, #ffffff 30%, var(--accent-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    letter-spacing: -2px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+  }
+
+  p.description {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+  }
+
+  /* Footer Info */
+  .footer-notice {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 1.5rem;
+  }
+
+  /* Keyframe Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Mobile Optimization */
+  @media (max-width: 480px) {
+    .brand { font-size: 2rem; }
+    .status-code { font-size: 4.5rem; }
+    h1 { font-size: 1.4rem; }
+    p.description { font-size: 0.95rem; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Wave Simulation Background -->
+  <canvas id="maintenance-canvas"></canvas>
+
+  <!-- Main Content Wrapper -->
+  <div class="container">
+    
+    <!-- Alon Brand Heading -->
+    <div class="brand">ALON<span>Partylist</span></div>
+    <div class="badge">Saint Ignatius Academy · Cabuyao</div>
+
+    <!-- Error/Maintenance State -->
+    <div class="status-code">404</div>
+    <h1>We will be under construction!</h1>
+    
+    <p class="description">
+      The wave of change is gathering its strength. Our team is currently preparing and 
+      updating our systems to bring you the best digital experience. We will be available soon 
+      with a tidal wave of fresh platforms, ideas, and leadership.
+    </p>
+
+    <!-- Return/Notice Message -->
+    <div class="footer-notice">
+      We'll be back soon. Stay tuned for the upcoming Supreme School Council Election.
+    </div>
+
+  </div>
+
+  <!-- =========================================================
+       2. JAVASCRIPT ENGINE (Smooth, Gentle Wave Motion)
+       ========================================================= -->
+  <script>
+    const canvas = document.getElementById('maintenance-canvas');
+    const ctx = canvas.getContext('2d');
+
+    // Gentle wave parameters to match the soft introduction theme
+    const layers = [
+      { color: 'rgba(79,179,232,0.08)',  amp: 20, len: 0.003, speed: 0.0006, yFactor: 0.60 },
+      { color: 'rgba(191,228,247,0.06)', amp: 25, len: 0.002, speed: 0.0004, yFactor: 0.72 },
+      { color: 'rgba(255,255,255,0.03)', amp: 30, len: 0.0015, speed: 0.0002, yFactor: 0.85 }
+    ];
+
+    let w, h, t = 0;
+
+    function resize() {
+      if (!canvas) return;
+      w = canvas.width = window.innerWidth * (window.devicePixelRatio || 1);
+      h = canvas.height = window.innerHeight * (window.devicePixelRatio || 1);
+      canvas.style.width = window.innerWidth + 'px';
+      canvas.style.height = window.innerHeight + 'px';
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    function drawLayer(layer) {
+      ctx.beginPath();
+      const baseY = h * layer.yFactor;
+      ctx.moveTo(0, baseY);
+      const dpr = window.devicePixelRatio || 1;
+
+      for (let x = 0; x <= w; x += 10 * dpr) {
+        // Multi-sine logic for natural ocean tide effect
+        const y = baseY + Math.sin(x * layer.len + t * layer.speed * 60) * layer.amp * dpr
+                         + Math.sin(x * layer.len * 2.5 - t * layer.speed * 40) * (layer.amp * 0.3) * dpr;
+        ctx.lineTo(x, y);
+      }
+
+      ctx.lineTo(w, h);
+      ctx.lineTo(0, h);
+      ctx.closePath();
+      ctx.fillStyle = layer.color;
+      ctx.fill();
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, w, h);
+      layers.forEach(drawLayer);
+      t += 1;
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+
+</body>
+</html>
