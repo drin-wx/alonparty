@@ -1,0 +1,294 @@
+/* =========================================================
+   ALON PARTYLIST — BRAND DESIGN SYSTEM
+========================================================= */
+:root {
+  --b-bright:  #0096ff;
+  --b-semi:    #0090fe;
+  --b-mid:     #0282d6;
+  --b-navy:    #205d9d;
+  --b-deep:    #03459b;
+  --b-shadow:  #11294d;
+  --white:     #f7fbff;
+  --ink:       #eaf4ff;
+  --radius-lg: 22px;
+  --radius-md: 14px;
+  --ease: cubic-bezier(.22,.9,.32,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: var(--b-shadow);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   CUSTOM PREMIUM SCROLLBAR
+========================================================= */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--b-shadow);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--b-deep) 0%, var(--b-bright) 100%);
+  border-radius: 6px;
+  border: 2px solid var(--b-shadow);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--b-bright) 0%, var(--b-semi) 100%);
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--b-bright) var(--b-shadow);
+}
+
+.hidden { display: none !important; }
+ul { margin: 0; padding: 0; list-style: none; }
+
+.font-motto {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-style: italic !important;
+}
+.font-title {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 900 !important;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+/* =========================================================
+   INTRO VIEW CONFIGURATION (3-WAVE BACKED)
+========================================================= */
+#intro {
+  position: fixed; inset: 0; z-index: 200;
+  background: radial-gradient(120% 120% at 50% 20%, var(--b-deep) 0%, var(--b-shadow) 80%);
+  display: flex; align-items: center; justify-content: center;
+  animation: intro-fade 3.6s var(--ease) forwards;
+}
+#intro-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.intro-mark {
+  position: relative; z-index: 2;
+  display: flex; justify-content: center; align-items: center;
+  animation: intro-mark-in 1.5s .3s var(--ease) both;
+  width: min(340px, 75vw);
+}
+.intro-logo-img {
+  width: 100%; height: auto; object-fit: contain;
+  filter: drop-shadow(0 10px 30px rgba(0, 150, 255, 0.4));
+}
+
+@keyframes intro-mark-in {
+  from { opacity: 0; transform: scale(.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes intro-fade {
+  0%, 85% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+/* =========================================================
+   CORE COMPONENT VIEWPORT
+========================================================= */
+#site { position: relative; }
+#bg-canvas {
+  position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0;
+  background: linear-gradient(160deg, var(--b-shadow) 0%, var(--b-deep) 40%, #0a1830 100%);
+}
+
+.hero, .candidates, .party-advocacy, .site-footer, .scroll-cue { position: relative; z-index: 1; }
+
+/* =========================================================
+   HERO SEGMENT
+========================================================= */
+.hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1.1fr .9fr;
+  align-items: center; gap: clamp(2rem, 4vw, 4rem);
+  padding: clamp(2rem, 6vw, 5rem) clamp(1.5rem, 6vw, 6rem);
+}
+.hero__logo-wrapper { max-width: 320px; width: 100%; margin-bottom: 1.2rem; display: flex; }
+.hero-brand-logo { width: 100%; height: auto; object-fit: contain; }
+.hero__banner-container {
+  width: 100%; display: flex; justify-content: center; align-items: center;
+  border-radius: var(--radius-lg); overflow: hidden;
+  box-shadow: 0 25px 55px rgba(17, 41, 77, 0.5);
+  border: 1px solid rgba(0, 150, 255, 0.25);
+}
+.responsive-banner-img { width: 100%; height: auto; display: block; object-fit: cover; transition: transform 0.5s var(--ease); }
+.responsive-banner-img:hover { transform: scale(1.02); }
+
+.eyebrow { font-size: .72rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--b-bright); opacity: .9; margin: 0 0 1rem; }
+.hero__motto { font-size: clamp(1.0rem, 2.2vw, 1.5rem); color: var(--white); margin: 0 0 1.5rem; position: relative; padding-left: 1.1rem; }
+.hero__motto::before { content: ""; position: absolute; left: 0; top: .25em; bottom: .25em; width: 3px; background: linear-gradient(var(--b-bright), transparent); border-radius: 2px; }
+.hero__desc { font-size: 1rem; line-height: 1.75; opacity: .9; max-width: 52ch; margin: 0 0 1.6rem; }
+.hero__why h2 { font-size: 2.00rem; font-weight: 700; margin: 0 0 .6rem; color: var(--white); }
+.hero__why p { font-size: .95rem; line-height: 1.75; opacity: .85; max-width: 54ch; margin: 0 0 1.8rem; }
+
+.btn {
+  display: inline-flex; align-items: center; padding: .9rem 2.2rem; border-radius: 999px;
+  font-weight: 700; font-size: .9rem; letter-spacing: .03em; border: 1px solid transparent; cursor: pointer;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.btn--primary { background: linear-gradient(120deg, var(--b-bright), var(--b-mid)); color: var(--white); box-shadow: 0 10px 30px -8px rgba(0, 150, 255, 0.5); }
+.btn--primary:hover { transform: translateY(-3px); box-shadow: 0 16px 38px -10px rgba(0, 150, 255, 0.7); }
+
+.scroll-cue {
+  display: flex; flex-direction: column; align-items: center; gap: .4rem;
+  color: var(--b-bright); opacity: .8; font-size: .72rem; font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase; padding-bottom: 2.4rem;
+  animation: bob 2.4s ease-in-out infinite;
+}
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+/* =========================================================
+   CANDIDATE GRID LOCK SYSTEM (3-COLUMN INDESTRUCTIBLE)
+========================================================= */
+.candidates { padding: 1rem clamp(1.2rem, 5vw, 4rem) 2rem; }
+.group { margin-bottom: 3.4rem; }
+.group__title { font-size: clamp(1.2rem, 2.4vw, 1.6rem); font-weight: 800; color: var(--white); margin: 0 0 .3rem; display: flex; align-items: center; gap: .8rem; }
+.group__title::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--b-mid), transparent); }
+.group__sub { font-size: .82rem; color: var(--b-bright); opacity: .85; margin: 0 0 1.4rem; }
+
+.grid3 {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: clamp(.5rem, 1.8vw, 1.5rem);
+}
+.card {
+  position: relative; background: linear-gradient(160deg, rgba(3, 69, 155, 0.5), rgba(17, 41, 77, 0.9));
+  border: 1px solid rgba(0, 144, 254, 0.3); border-radius: var(--radius-md); overflow: hidden;
+  cursor: pointer; display: flex; flex-direction: column;
+  transition: transform 0.45s var(--ease), border-color 0.45s var(--ease), box-shadow 0.45s var(--ease);
+}
+.card:hover, .card:focus-visible {
+  transform: translateY(-8px) scale(1.02); border-color: var(--b-bright);
+  box-shadow: 0 22px 45px -12px rgba(0, 150, 255, 0.5); outline: none;
+}
+.card__frame { position: relative; aspect-ratio: 3/4; overflow: hidden; background: var(--b-shadow); }
+.candidate-photo-wrapper { width: 100%; height: 100%; background: linear-gradient(180deg, var(--b-deep) 0%, var(--b-shadow) 100%); }
+.candidate-photo-wrapper img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.card__wave-overlay { position: absolute; left: 0; right: 0; bottom: 0; height: 55%; background: linear-gradient(0deg, rgba(17, 41, 77, 0.95) 20%, rgba(17, 41, 77, 0) 100%); }
+.card__name-block { position: absolute; left: 0; right: 0; bottom: 0; padding: .8rem; z-index: 3; }
+.card__name { font-size: clamp(0.75rem, 1.6vw, 1.05rem); font-weight: 700; color: var(--white); margin: 0 0 .15rem; line-height: 1.2; }
+.card__position { font-size: clamp(0.6rem, 1.2vw, 0.78rem); font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--b-bright); }
+.card__tap { padding: .55rem .4rem; text-align: center; font-size: .62rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--b-bright); background: rgba(17, 41, 77, 0.5); border-top: 1px solid rgba(0, 150, 255, 0.15); }
+
+/* =========================================================
+   PARTY ADVOCACY PARAGRAPH SECTION
+========================================================= */
+.party-advocacy { padding: 3rem clamp(1.2rem, 5vw, 4rem); background: rgba(3, 69, 155, 0.15); border-top: 1px solid rgba(0, 150, 255, 0.15); }
+.advocacy-container { max-width: 800px; margin: 0 auto; }
+.party-advocacy h2 { font-size: 1.8rem; color: var(--white); margin-bottom: 1rem; text-align: center; }
+.advocacy-intro { font-size: 1rem; opacity: 0.9; margin-bottom: 1.5rem; text-align: center; }
+.advocacy-list li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem; position: relative; padding-left: 1.5rem; }
+.advocacy-list li::before { content: "✦"; position: absolute; left: 0; color: var(--b-bright); }
+
+/* =========================================================
+   AUDIO FLOATER BUTTON
+========================================================= */
+.audio-floater {
+  position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 99;
+  background: linear-gradient(135deg, var(--b-deep), var(--b-shadow));
+  border: 1px solid rgba(0, 150, 255, 0.4); padding: .45rem .45rem .45rem 1rem; border-radius: 50px;
+  display: flex; align-items: center; gap: .8rem; box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+}
+.audio-floater__status { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--white); }
+.audio-floater__btn { width: 36px; height: 36px; border-radius: 50%; background: var(--b-bright); color: var(--white); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .3s ease, transform .2s ease; }
+.audio-floater__btn:hover { background: var(--b-semi); transform: scale(1.05); }
+
+/* =========================================================
+   MODAL CREDENTIAL EXTENDED DETAILED SCROLLABLE FLOATER
+========================================================= */
+.detail-overlay { position: fixed; inset: 0; z-index: 150; display: flex; align-items: center; justify-content: center; padding: 2rem; background: rgba(17, 41, 77, 0.85); backdrop-filter: blur(8px); }
+#detail-canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .3; }
+
+.detail-card {
+  position: relative; z-index: 2; width: min(860px, 100%); max-height: 85vh; 
+  display: grid; grid-template-columns: .8fr 1.2fr;
+  background: linear-gradient(160deg, var(--b-deep), var(--b-shadow));
+  border: 1px solid rgba(0, 150, 255, 0.3); border-radius: var(--radius-lg);
+  box-shadow: 0 40px 90px -30px rgba(0,0,0,.7); overflow: hidden;
+}
+.detail-close { position: absolute; top: 1rem; right: 1rem; z-index: 10; width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,.08); color: var(--white); border: 1px solid rgba(0, 150, 255, 0.3); font-size: 1.4rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .3s ease, transform .3s ease; }
+.detail-close:hover { background: rgba(255,255,255,.18); transform: rotate(90deg); }
+
+.detail-card__visual { position: relative; display: flex; align-items: flex-start; justify-content: center; padding: 3rem 2rem; background: rgba(17, 41, 77, 0.3); border-right: 1px solid rgba(0, 150, 255, 0.1); }
+.modal-photo-wrapper { width: 100%; max-width: 220px; aspect-ratio: 3/4; border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.4); border: 1px solid rgba(0, 150, 255, 0.2); }
+.modal-photo-wrapper img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Inayos para maging independently scrollable ang buong teksto sa loob */
+.detail-card__body-scroll { padding: 3rem 2.5rem 3rem 2rem; overflow-y: auto; max-height: 85vh; }
+.detail-position { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--b-bright); margin: 0 0 .3rem; }
+.detail-name { font-size: clamp(1.4rem, 2.8vw, 2.2rem); font-weight: 900; color: var(--white); margin: 0 0 .4rem; line-height: 1.2; }
+.detail-motto { font-size: 0.95rem; color: var(--ink); opacity: 0.85; margin: 0 0 2rem 0; line-height: 1.5; padding-left: 0.8rem; border-left: 2px solid var(--b-bright); }
+
+.detail-section { margin-bottom: 2rem; }
+.detail-section h4 { font-size: .85rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--white); margin: 0 0 1rem; padding-bottom: .3rem; border-bottom: 1px solid rgba(0, 150, 255, 0.2); }
+
+/* Object Data Presentation */
+.creds-subgroup { margin-bottom: 1.2rem; }
+.creds-subgroup h5 { font-size: 0.72rem; letter-spacing: 0.05em; color: var(--b-bright); margin: 0 0 0.4rem 0; text-transform: uppercase; }
+.creds-subgroup ul li { font-size: .88rem; line-height: 1.6; opacity: .9; padding-left: 1.1rem; position: relative; margin-bottom: .4rem; }
+.creds-subgroup ul li::before { content: ""; position: absolute; left: 0; top: .6em; width: 4px; height: 4px; border-radius: 50%; background: var(--b-bright); }
+
+.plat-item { margin-bottom: 1.4rem; background: rgba(0, 150, 255, 0.06); padding: 0.8rem 1rem; border-radius: var(--radius-md); border-left: 3px solid var(--b-mid); }
+.plat-item h5 { font-size: 0.85rem; color: var(--white); margin: 0 0 0.3rem 0; font-weight: 700; }
+.plat-statement { font-size: 0.82rem; color: var(--b-bright); margin: 0 0 0.5rem 0; }
+.plat-details { font-size: 0.86rem; line-height: 1.6; opacity: 0.9; margin: 0; }
+.empty-text { font-size: 0.85rem; opacity: 0.6; font-style: italic; }
+
+/* =========================================================
+   FOOTER (LOGO MODIFIED)
+========================================================= */
+.site-footer { padding: 3.2rem clamp(1.2rem, 5vw, 4rem) 2rem; border-top: 1px solid rgba(0, 150, 255, 0.2); }
+.footer__grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 2.4rem; margin-bottom: 2.2rem; }
+.footer__brand { display: flex; flex-direction: column; gap: 0.8rem; }
+.footer-logo-img { max-width: 140px; height: auto; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0,150,255,0.2)); }
+.footer-motto { font-size: 1.05rem; line-height: 1.4; color: var(--white); max-width: 24ch; }
+.footer__col h4 { font-size: .82rem; font-weight: 700; text-transform: uppercase; color: var(--b-bright); margin: 0 0 .9rem; }
+.footer__col li { font-size: .85rem; line-height: 1.9; opacity: .8; }
+.footer__bottom { font-size: .72rem; opacity: .5; text-align: center; margin: 0; }
+
+/* =========================================================
+   RESPONSIVE LAYOUT MEDIA BREAKPOINTS
+========================================================= */
+@media (max-width: 720px) {
+  .hero { grid-template-columns: 1fr; text-align: center; padding-top: 2.5rem; gap: 1.5rem; }
+  .hero__col--visual { order: -1; width: 100%; }
+  .hero__logo-wrapper { margin-left: auto; margin-right: auto; max-width: 260px; }
+  .hero__banner-container { width: 100%; height: auto; max-height: 250px; }
+  .hero__motto { padding-left: 0; }
+  .hero__motto::before { display: none; }
+  .hero__desc, .hero__why p { margin-left: auto; margin-right: auto; }
+  .btn { margin: 0 auto; }
+
+  /* 3-Column Lock Grid Security Override Protection */
+  .grid3 { grid-template-columns: repeat(3, 1fr) !important; gap: .35rem; }
+  .card__tap { display: none; }
+  .card__name { font-size: 0.72rem; }
+  .card__position { font-size: 0.55rem; }
+  
+  .footer__grid { grid-template-columns: 1fr 1fr; }
+  .footer__brand { grid-column: 1 / -1; align-items: center; text-align: center; }
+
+  .detail-card { grid-template-columns: 1fr; max-height: 90vh; }
+  .detail-card__visual { padding: 2rem 1rem 0 1rem; border-right: none; border-bottom: 1px solid rgba(0, 150, 255, 0.1); align-items: center; justify-content: center; }
+  .modal-photo-wrapper { max-width: 140px; }
+  .detail-card__body-scroll { padding: 1.5rem 1.2rem 2rem 1.2rem; max-height: 60vh; }
+  
+  .audio-floater { bottom: 1rem; right: 1rem; padding: .45rem .45rem .45rem .8rem; }
+}
+
+@media (max-width: 480px) {
+  .grid3 { gap: .2rem; }
+  .card__name-block { padding: .4rem .2rem; }
+  .card__name { font-size: 0.65rem; }
+  .card__position { font-size: 0.5rem; }
+}

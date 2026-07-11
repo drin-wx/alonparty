@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alon Partylist | St. Ignatius Academy</title>
+  <link rel="icon" type="image/png" href="stilogo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Background Core Music -->
+<audio id="bg-music" src="simula.mp3" loop prefetch></audio>
+
+<!-- ============ INTRO SEQUENCE ============ -->
+<div id="intro" aria-hidden="true">
+  <canvas id="intro-canvas"></canvas>
+  <div class="intro-mark">
+    <img src="logo.png" alt="Alon Partylist Logo" class="intro-logo-img">
+  </div>
+</div>
+
+<!-- ============ SITE CONTENT ============ -->
+<div id="site" class="hidden">
+
+  <!-- Combined Dynamic Wave & Starry Sky Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- HERO SECTION -->
+  <header class="hero" id="top">
+    <div class="hero__col hero__col--text">
+      <p class="eyebrow">Supreme School Council Election <br> St. Ignatius Academy Cabuyao Campus</p>
+      
+      <div class="hero__logo-wrapper">
+        <img src="logo.png" alt="ALON Partylist" class="hero-brand-logo">
+      </div>
+      
+      <p class="hero__motto font-title">Aksyon tungo sa Lideratong Organisado at Nagkakaisa</p>
+      <p class="hero__desc">
+        Alon is a partylist running for positions in the Supreme School Council
+        Election at St. Ignatius Academy, Cabuyao Campus. We are students who believe
+        that real change moves the way a wave moves &mdash; steady, gathering strength,
+        and reaching every shore of our school community.
+      </p>
+      <div class="hero__why">
+        <h2>Why Vote Alon Partylist?</h2>
+        <p>
+          Because leadership should rise from listening. Our candidates were chosen for
+          their record of service, their honesty under pressure, and their readiness to
+          carry the concerns of every grade level, every strand, into every council
+          decision. Alon is not one voice &mdash; it is the whole tide of the student body,
+          moving together.
+        </p>
+      </div>
+      <a href="#candidates" class="btn btn--primary" id="learn-more">Learn More</a>
+    </div>
+    
+    <div class="hero__col hero__col--visual">
+      <div class="hero__banner-container">
+        <picture>
+          <source media="(max-width: 720px) and (orientation: landscape)" srcset="banner1P.png">
+          <source media="(min-width: 721px)" srcset="banner1P.png">
+          <img src="" alt="" class="responsive-banner-img">
+        </picture>
+      </div>
+    </div>
+  </header>
+
+  <div class="scroll-cue">
+    <span>Meet the Tide of Our Candidates</span>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+
+  <!-- CANDIDATES MAIN GRID -->
+  <main id="candidates" class="candidates">
+    <div id="candidate-groups"></div>
+  </main>
+
+  <!-- ALON PARTYLIST PLATFORM & ADVOCACY SECTION (Below Candidates) -->
+  <section class="party-advocacy">
+    <div class="advocacy-container">
+      <h2 class="font-title">Alon Partylist Platform & Advocacy</h2>
+      <p class="advocacy-intro">Every great change begins with a single wave. That is what <strong>ALON PARTYLIST</strong> stands for—a movement rising with purpose, unity, and genuine service. We believe in an inclusive and safe campus free from bullying, a student council rooted in transparency, and a leadership that genuinely listens to every voice. Above all, we champion the well-being and mental health of every student, because true leaders do not seek power; they earn trust by doing what is right for the community. <strong>Together with ALON Partylist, let us move forward and create positive change.</strong></div><p>
+      <ul class="advocacy-list">
+        <li><strong>Zero Tolerance for Bullying</strong>We advocate for a school environment where bullying in all its forms, whether physical, verbal, social, or online is not tolerated. Every student deserves to feel safe, respected, and valued.</li>
+        <li><strong>Respect for Every Individual</strong>We stand firmly against all forms of abuse, harassment, discrimination, intimidation, and any behavior that violates the dignity and rights of others. Our community should be built on respect, inclusivity, and compassion.</li>
+        <li><strong>Integrity and Transparency in Leadership</strong>We are committed to honest, transparent, and accountable leadership. We reject dishonesty, deception, misinformation, and actions that undermine the trust of the student body. Every decision and initiative should be guided by truth, fairness, and responsibility.</li>
+        <li><strong>Accountability and Responsibility</strong>We believe that every leader must be accountable for their actions and decisions. Leadership is a responsibility that requires fairness, consistency, and dedication to serving the interests of all students.</li>
+        <li><strong>A Culture of Unity and Mutual Respect</strong>We will promote cooperation, open communication, and understanding among students, fostering a school community where everyone has the opportunity to be heard and respected.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <!-- Pinalitan ang text ng LOGO image at MOTTO sa baba nito -->
+        <img src="logo.png" alt="Alon Logo" class="footer-logo-img">
+      </div>
+      <div class="footer__col">
+        <h4>Our Mission</h4>
+        <ul>
+          <li>Accessible learning resources for every strand</li>
+          <li>Transparent, student-led council decisions</li>
+          <li>Stronger mental health & peer support programs</li>
+          <li>Inclusive activities across St. Ignatius students</li>
+        </ul>
+      </div>
+      
+      <div class="footer__col">
+        <h4>Election Day</h4>
+        <ul>
+          <li>Every vote is a wave of change</li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer__bottom">©Alon Partylist 2026. <br> this website developed by Alon Partylist/Mayor</p>
+  </footer>
+
+  <!-- FLOATING MUSIC CONTROLLER FOOTER -->
+  <div class="audio-floater" id="music-control-panel">
+    <span class="audio-floater__status">Simula by Seedee</span>
+    <button id="music-toggle-btn" class="audio-floater__btn" aria-label="Toggle Music">
+      <svg id="ctrl-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+  </div>
+
+</div>
+
+<!-- ============ CANDIDATE DETAIL OVERLAY (FLOATER WITH SCROLLABLE CONTENTS) ============ -->
+<div id="detail-overlay" class="detail-overlay hidden" role="dialog" aria-modal="true" aria-hidden="true">
+  <canvas id="detail-canvas"></canvas>
+  <div class="detail-card">
+    <button class="detail-close" id="detail-close" aria-label="Close">&times;</button>
+    <div class="detail-card__visual">
+      <div class="detail-avatar" id="detail-avatar"></div>
+    </div>
+    <div class="detail-card__body-scroll">
+      <p class="detail-position" id="detail-position"></p>
+      <h2 class="detail-name" id="detail-name"></h2>
+      <p class="detail-motto font-motto" id="detail-motto"></p>
+      
+      <div class="detail-section">
+        <h4>Credentials</h4>
+        <div id="detail-credentials-content"></div>
+      </div>
+      <div class="detail-section">
+        <h4>Platform &amp; Advocacy</h4>
+        <div id="detail-platforms-content"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
