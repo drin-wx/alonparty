@@ -178,9 +178,49 @@
         "id": 5,
         "position": "Auditor",
         "full_name": "Kristelle Claire T. Amarante",
-        "motto": "",
-        "credentials": {},
-        "platforms_and_advocacies": []
+        "motto": "HINDI SUMUSUKO SA HAMON, BAGKUS AY LALONG TUMITIBAY SA BAWAT ALON.",
+        "credentials": {
+            "academic_excellence": [
+                "Grade 1 to 3 With Honors (Top 2 Overall Performer)",
+                "Grade 4 to 6 With Honors",
+                "Grade 7 to 10 With Honors",
+                "Grade 11 With High Honors"
+            ],
+            "leadership_experience": [
+                "Grade 1 & 2 Class Auditor, Grade 3 to 5 Class Peace Officer",
+                "Grade 8 & 9 Class Auditor, Grade 11 Class Peace Officer",
+                "Grade 12 Class Treasurer"
+            ],
+            "organizational_memberships": [
+                "Member, ALCI Music Chorale (2016–2020) & Band Performer (2018–2020)",
+                "Member, SPPC Chorale (2024–2025) & Usher (2025)",
+                "School Library Assistant (SLA), Cabuyao Integrated National High School (2022–2023)",
+                "Member, Oplan Kalinga Para sa Kabataan (OKPK) (2025–2026)",
+                "Member, Tindig Kabataan: Lingkod ng Bayan (TKLB) (2026)",
+                "Member, Bagong Cabuyao CDRRM Youth Volunteer Brigade (2026)",
+                "News Writer (Filipino), Ang Ignithayag – The Ignite Express (2025–2027)"
+            ],
+            "notable_achievements": [
+                "Ms. Congeniality Award & Enthusiastic Award (Grade 2)",
+                "Winner, ALCI Sportsfest (2018) & Participant, ALCI Spelling Quiz Bee (2016–2017)",
+                "1st Place, MTAP Math Challenge Division (2017–2018)",
+                "1st Place, ALCI Science Quiz Bee (2019–2020) & 1st Place, ALCI Declamation Contest (2019–2020)",
+                "1st Place, ALCI Battle of the Brains (2020)",
+                "5th Place, Division Schools Press Conference (DSPC) – Filipino Collaborative Publishing (2025)"
+            ]
+        },
+        "platforms_and_advocacies": [
+            {
+                "title": "BudgetIN 360 BOARD",
+                "statement": "A Complete View of Every Budget, Every Peso, Every Decision.",
+                "details": "360° Budget Oversight for allocations, expenditures, balances; Real-Time Financial Monitoring to detect overspending; Smart Audit Trail for full traceability; Compliance & Risk Alerts to flag budget variances."
+            },
+            {
+                "title": "HUMSS WEEK PROJECT: HUMSS: Tayo Naman!",
+                "statement": "Tinig Mo, Kinabukasan Natin.",
+                "details": "Debate and Speech Competitions (Tinig ng Katwiran); Essay Writing and Journalism Contests (Ignit ng Panulat); Mental Health and Social Awareness (Kalinga at Kamalayan); Community Outreach Programs (Kilos Para sa Bawat Isa); Leadership and Career Development Seminars (Handa sa Bukas)."
+            }
+        ]
     },
     {
         "id": 6,
